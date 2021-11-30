@@ -16,8 +16,15 @@ def yn(yn : bool):
     pass
 def reloadMB():
     pass
-def pressA():
-    pass
+def pressA(time : int):
+    root = Tk()
+    img = ImageTk.PhotoImage(Image.open('activate.jpg'))
+    panel = Label(root, image = img)
+    panel.pack(side = "bottom", fill = "both", expand = "yes")
+
+    root.attributes('-fullscreen',True)
+    root.after(time, root.destroy)
+    root.mainloop()
 def mic():
     pass
 
