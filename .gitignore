@@ -2,3 +2,6 @@
 *.png
 *.jpg
 *.svg
+assets/**
+__pycache__/**
+sound/**
