@@ -47,7 +47,6 @@ def mic():
     pass
 
 
-    window.mainloop()
 
 if __name__ == '__main__':
-    main()
+    loading()
