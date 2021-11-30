@@ -1,6 +1,7 @@
 from tkinter import *
 from pyautogui import size
 import threading
+from PIL import ImageTk, Image
 
 def main():
     x, y = size()
@@ -17,25 +18,14 @@ def main():
     img = PhotoImage(file='loading.gif', format="gif -index 2")
     image = canvas.create_image(10, 10, anchor=NW, image=img)
 
-def loading():
-    global run
-    run = True
+def loading(time : int = 0):
     root = Tk()
+    img = ImageTk.PhotoImage(Image.open('wait.svg'))
+    panel = Label(root, image = img)
+    panel.pack(side = "bottom", fill = "both", expand = "yes")
 
-    frameCnt = 8
-    frames = [PhotoImage(file='loading.gif',format = 'gif -index %i' %(i)) for i in range(frameCnt)]
-    def update(ind):
-
-        frame = frames[ind]
-        ind += 1
-        if ind == frameCnt:
-            ind = 0
-        label.configure(image=frame)
-        root.after(100, update, ind)
-    label = Label(root)
-    label.pack()
-    root.after(0, update, 0)
     root.attributes('-fullscreen',True)
+    root.after(time, root.destroy)
     root.mainloop()
 def yn(yn : bool):
     pass
@@ -49,4 +39,4 @@ def mic():
 
 
 if __name__ == '__main__':
-    loading()
+    loading(1000)
