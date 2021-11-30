@@ -98,7 +98,7 @@ def main(vtipn : float = 0):
     elif 'nevím' in text:
         vs.TTS('To já také ne')
     elif 'co jsi' in text:
-        vs.TTS('Já jsem halsový asistent')
+        vs.TTS('Já jsem hlasový asistent')
     else:
         vs.TTS('Omlouvám se ale nerozumněl jsem, Nebo tato věta není v mé databázy')
 
