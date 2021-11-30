@@ -12,8 +12,18 @@ def loading(time : int = 0):
     root.attributes('-fullscreen',True)
     root.after(time, root.destroy)
     root.mainloop()
-def yn(yn : bool):
-    pass
+def yn(yes : bool, time : int = 0):
+    root = Tk()
+    if yes == True:
+        img = ImageTk.PhotoImage(Image.open('yn.jpg'))
+    else:
+        img = ImageTk.PhotoImage(Image.open('yn.jpg'))
+    panel = Label(root, image = img)
+    panel.pack(side = "bottom", fill = "both", expand = "yes")
+
+    root.attributes('-fullscreen',True)
+    root.after(time, root.destroy)
+    root.mainloop()
 def reload(time : int = 0):
     root = Tk()
     img = ImageTk.PhotoImage(Image.open('reloading.jpg'))
@@ -38,4 +48,4 @@ def mic():
 
 
 if __name__ == '__main__':
-    reload(10000)
+    yn(1, 10000)
