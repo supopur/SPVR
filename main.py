@@ -1,14 +1,29 @@
-import voicestuff as vs
+try:
+    import configparser
+    import checkfiles as check
+    conf = configparser.ConfigParser()
+    conf.read('conf.ini')
+    skip_file_check = conf['dangerzone']['skip_file_check']
+    if skip_file_check == 'False':
+        print('Checking file integrity...')
+        check.main()
+except:
+    print('ERROR FAILED TO IMPORT LETHAL MODULES CHECK YOUR FILES')
+    print('LAUNCH REQUIRED.SH IF THAT DOESNT FIX IT DOWNLOAD THIS FILE:')
+    print('https://raw.githubusercontent.com/supopur/SPVR/main/checkfiles.py')
+    print('AND PUT IT IN THE MAIN DIRECTORY')
+    print('MODULES POTENTIALY MISSING:')
+    print('configparser \ncheckfile.py')
 from datetime import datetime
 #import pyjokes
 from googletrans import Translator as translator
 #import random
 import linecache
-import configparser
 from os.path import exists
 from colorama import Fore, Style
 from os import popen
-import checkfiles as check
+
+import voicestuff as vs
 
 def main(vtipn : float = 0):
     #settings stuff
@@ -24,8 +39,7 @@ def main(vtipn : float = 0):
             return 0
 
     
-    conf = configparser.ConfigParser()
-    conf.read('conf.ini')
+
     
     jokefile = conf['jokes']['jokefile']
     joken = conf['jokes']['jokenumber']
@@ -37,13 +51,9 @@ def main(vtipn : float = 0):
     
     ttslang = conf['tts']['deflang']
     ttsdir = conf['tts']['dirname']
+
     
-    skip_file_check = conf['dangerzone']['skip_file_check']
-    print(skip_file_check)
-    
-    if skip_file_check == 'False':
-        print('Checking file integrity...')
-        check.main()
+
     
     #confsoup = [jokefile, joken, rlang, ambient, ttslang, ttsdir, ttsncache]
     #print(confsoup)
