@@ -1,19 +1,16 @@
 try:
-    import configparser
     import checkfiles as check
-    conf = configparser.ConfigParser()
-    conf.read('conf.ini')
-    skip_file_check = conf['dangerzone']['skip_file_check']
-    if skip_file_check == 'False':
-        print('Checking file integrity...')
-        check.main()
+
+    print('Checking file integrity...')
+    check.main()
 except:
     print('ERROR FAILED TO IMPORT LETHAL MODULES CHECK YOUR FILES')
     print('LAUNCH REQUIRED.SH IF THAT DOESNT FIX IT DOWNLOAD THIS FILE:')
     print('https://raw.githubusercontent.com/supopur/SPVR/main/checkfiles.py')
     print('AND PUT IT IN THE MAIN DIRECTORY')
     print('MODULES POTENTIALY MISSING:')
-    print('configparser \ncheckfile.py')
+    print('checkfile.py')
+import configparser
 from datetime import datetime
 #import pyjokes
 from googletrans import Translator as translator
@@ -27,6 +24,8 @@ import voicestuff as vs
 
 def main(vtipn : float = 0):
     #settings stuff
+    conf = configparser.ConfigParser()
+    conf.read('conf.ini')
     
     if not exists('conf.ini'):
         print(Fore.RED + "[EXCEPTION]: Config file doesn't. Please download it from: https://raw.githubusercontent.com/supopur/SPVR/main/conf.ini", Style.RESET_ALL)
