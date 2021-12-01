@@ -4,7 +4,7 @@ from datetime import datetime
 from googletrans import Translator as translator
 #import random
 import linecache
-
+import configparser
 
 def main(vtipn : float = 0):
     text = vs.recognize()
