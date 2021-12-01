@@ -1,5 +1,5 @@
 <!-- Make a new line with <br> tag -->
-<h5>SPVR</h5>
+<h1>SPVR</h1>
 <h3>What is this?</h3>
 This is a school project. <br>
 This is a voice assistant that speaks Czech (you can change it in the conf.ini file). <br>
