@@ -1,6 +1,6 @@
 from tkinter import *
 from pyautogui import press, size
-import threading
+#import threading
 from PIL import ImageTk, Image
 
 def loading(time : int = 0):

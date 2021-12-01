@@ -2,7 +2,7 @@ import voicestuff as vs
 from datetime import datetime
 #import pyjokes
 from googletrans import Translator as translator
-import random
+#import random
 import linecache
 
 
