@@ -1,8 +1,8 @@
 <!-- Make a new line with <br> tag -->
 <h5>SPVR</h5>
 <h3>What is this?</h3>
-This is a school project. \
-It is a vocie assistant that speaks Czech (you can change it in the conf.ini file). \
+This is a school project. <br>
+It is a voice assistant that speaks Czech (you can change it in the conf.ini file). <br>
 <h3>
 How to use this stuff
 </h3>
