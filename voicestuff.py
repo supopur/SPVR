@@ -4,14 +4,17 @@ from playsound import playsound
 from os.path import exists
 from colorama import Fore, Style
 from os import mkdir
+import configparser
 
 r = sr.Recognizer()
 
-def TTS(text : str = 'oops žádný vstup textu', filename : str = '', lang : str = 'cs', play : bool = True, ctx : str = ''):
-    print(ctx)
-    if not exists("sound"):
+def TTS(text : str = 'oops žádný vstup textu', filename : str = '', lang : str = 'cs', dir : str = 'sound'):
+    conf = configparser.ConfigParser()
+    conf.read('conf.ini')
+    ncache = conf['tts']['no_cache_files']
+    if not exists(dir):
         try:
-            mkdir("sound")
+            mkdir(dir)
         except:
             print("VoiceStuff: Error could not make directory sound")
     if filename == '':
@@ -22,15 +25,15 @@ def TTS(text : str = 'oops žádný vstup textu', filename : str = '', lang : st
     tts = gTTS(text, lang = lang)
     if True:
         try:
-            if filename == 'joke' or filename == 'jak fungujes' or filename == 'commands':
+            if filename in ncache:
                 raise Exception("File doesn't exist")
             else:
-                location = 'sound' + '/' + filename + '.mp3'
+                location = dir + '/' + filename + '.mp3'
                 playsound(location)
         except:
             print('VoiceStuff: Plaing sound from cache failed')
             try:
-                location = 'sound' + '/' + filename + '.mp3'
+                location = dir + '/' + filename + '.mp3'
                 print('VoiceStuff: Saving speech to: ' + location)
                 tts.save(location)
                 print('VoiceStuff: Plaing speech from: ' + location)

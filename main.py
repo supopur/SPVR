@@ -7,6 +7,26 @@ import linecache
 import configparser
 
 def main(vtipn : float = 0):
+    #settings stuff
+    conf = configparser.ConfigParser()
+    conf.read('conf.ini')
+    
+    jokefile = conf['jokes']['jokefile']
+    joken = conf['jokes']['jokenumber']
+    joken = int(joken)
+    
+    rlang = conf['recognizer']['lang']
+    ambient = conf['recognizer']['adjust_ambient']
+    ambient = float(ambient)
+    
+    ttslang = conf['tts']['deflang']
+    ttsdir = conf['tts']['dirname']
+    
+    
+    #confsoup = [jokefile, joken, rlang, ambient, ttslang, ttsdir, ttsncache]
+    #print(confsoup)
+    
+    
     text = vs.recognize()
     print('Toto je print z funkce "main"', str(text))
     print(text)
@@ -14,7 +34,8 @@ def main(vtipn : float = 0):
         print('main: "jak se máš" recognized')
         output = 'mám se, dobře a co ty'
         print('Input: ', text, ' Output: ', output)
-        vs.TTS(output)
+        
+        vs.TTS(output, output, ttslang, ttsdir)
     elif 'funguješ' in text:
         print('main: "fungujes" recognized')
         output = 'když zmáčkneš tlačítko tak se do počítače pošle signál aby poslouchal, počítač nahraje zvukovou stopu a pak ji pošle do serverů googlu aby se řeč převedla na text, Pak google pošle zpět text (string), program se podívá jestli je tento text v databázi, Pokud je tak přes google překladač převede odpověď z textu do zvuku, A pak ten převedený text přehraje'
