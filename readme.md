@@ -1,5 +1,4 @@
-<usefull stuf: make new line with 2 spaces at the end of line>
-<it doesnt work on github>
+<!-- Make a new line with <br> tag -->
 <h3>
 How to use this stuff
 </h3>
