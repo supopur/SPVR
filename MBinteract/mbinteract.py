@@ -1,8 +1,8 @@
-import serial
+import usb.core
+import usb.util
 
+def main(mode : str, ):
+    devList = usb.core.find(find_all=True)
 
-ser = serial.Serial('/dev/ttyUSB0', 9600)
-ser.open()
-
-while True:
-    ser.send
+if __name__ == "__main__":
+    main()
