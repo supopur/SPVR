@@ -1,10 +1,10 @@
 pip3 install datetime
 pip3 install googletrans
-pip3 install linecache
-pip3 install speech_recognition
+#pip3 install linecache
+pip3 install SpeechRecognition
 pip3 install gtts
 pip3 install colorama
 pip3 install playsound
 pip3 install pyusb
-pip3 install tkinter
+#pip3 install tkinter
 pip3 install pyautogui
