@@ -5,9 +5,26 @@ from googletrans import Translator as translator
 #import random
 import linecache
 import configparser
+from os.path import exists
+from colorama import Fore, Style
+from os import popen
 
 def main(vtipn : float = 0):
     #settings stuff
+    
+    if not exists('conf.ini'):
+        try:
+            print(Fore.RED + "[EXCEPTION]: Config file doesn't. Please download it from: https://raw.githubusercontent.com/supopur/SPVR/main/conf.ini", Style.RESET_ALL)
+            download = input("Do you want to download it Y/n: ")
+            download = download.lower()
+            if download == '' or download == 'y':
+                print(popen("wget https://raw.githubusercontent.com/supopur/SPVR/main/conf.ini").read())
+                #return 0
+            else:
+                return 0
+        except FileExistsError:
+            pass
+    
     conf = configparser.ConfigParser()
     conf.read('conf.ini')
     
