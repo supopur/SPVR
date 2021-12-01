@@ -1,5 +1,5 @@
 *.mp3
-/__pycache__
-/.vscode
-/sound
-/test.py
+__pycache__
+.vscode
+sound
+test.py
