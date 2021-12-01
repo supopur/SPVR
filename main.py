@@ -22,11 +22,9 @@ def main(vtipn : float = 0):
         vs.TTS(output, 'jak fungujes')
     elif 'čas' in text or 'hodin' in text or 'minut' in text:
         print('main: "cas" recognized')
-        time = datetime.now()
-        hrs = time.strftime("%H")
-        min = time.strftime("%M")
-        output = f'Právě je {hrs} hodin a {min} minut'
-        vs.TTS(output, 'time')
+        timed = datetime.now()
+        time = timed.strftime("právě je %H hodin a %M minut")
+        vs.TTS(time, 'time')
     elif 'slyšíš' in text:
         print('main: "slysis" recognized')
         vs.TTS('Ano pořád tě poslouchám, ha, ha, ha, pořád tě slyším')
@@ -47,7 +45,7 @@ def main(vtipn : float = 0):
             print("Setting joke number to 1...")
             vtipn = 1
         else:
-            if not vtipn == 10:
+            if not vtipn == 14:
                 vtipn += 1
                 print('Adding 1 to vtipn')
             else:

@@ -3,11 +3,17 @@ from gtts import gTTS
 from playsound import playsound
 from os.path import exists
 from colorama import Fore, Style
+from os import mkdir
 
 r = sr.Recognizer()
 
 def TTS(text : str = 'oops žádný vstup textu', filename : str = '', lang : str = 'cs', play : bool = True, ctx : str = ''):
     print(ctx)
+    if not exists("sound"):
+        try:
+            mkdir("sound")
+        except:
+            print("VoiceStuff: Error could not make directory sound")
     if filename == '':
         filename = text
         print(f'VoiceStuff: Chagin filename to {filename}.mp3')
