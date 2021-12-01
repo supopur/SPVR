@@ -36,11 +36,16 @@ def main():
             print('Downloading files...')
             for miss in missing:
                 run = True
-                if miss in ['gui.py', 'activate.jpg', 'reloading.jpg', 'wait.svg', 'yn.jpg']:
-                    command = 'wget https://raw.githubusercontent.com/supopur/SPVR/main/gui/' + miss
-                elif miss in ['mbinteract.py', 'strwash.py']:
-                    command = 'wget https://raw.githubusercontent.com/supopur/SPVR/main/MBinteract/' + miss
+                print(miss)
+                if miss in ['/gui/gui.py', '/gui/activate.jpg', '/gui/reloading.jpg', '/gui/wait.svg', '/gui/yn.jpg']:
+                    print('File is in gui folder')
+                    command = 'wget -P gui/ https://raw.githubusercontent.com/supopur/SPVR/main' + miss
+                    print(command)
+                elif miss in ['/MBinteract/mbinteract.py', '/MBinteract/strwash.py']:
+                    print("File is in MBInteract folder")
+                    command = 'wget -P MBinteract/ https://raw.githubusercontent.com/supopur/SPVR/main' + miss
                 elif miss in files2:
+                    print(f"File is in the main folder")
                     command = 'wget https://raw.githubusercontent.com/supopur/SPVR/main/' + miss
                 else:
                     run = False
