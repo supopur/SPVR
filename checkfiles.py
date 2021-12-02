@@ -3,7 +3,7 @@
 import os
 import pathlib
 
-def checktree(reqdir : list = ['gui', 'MBinteract', 'assets']):
+def checktree(reqdir : list = ['asciigui', 'MBinteract', 'assets']):
     print('Checking directory tree...')
     required_dir = reqdir
     directories = os.listdir()
@@ -29,7 +29,7 @@ def checkfiles():
     #we shall store all the file names in this list
     filelist = []
     #you can touch this list "files2"
-    files2 = ['/main.py', '/voicestuff.py', '/vtipy.txt', '/projekty.txt', '/conf.ini', '/MBinteract/mbinteract.py', '/MBinteract/strwash.py', '/gui/gui.py', '/gui/activate.jpg', '/gui/reloading.jpg', '/gui/yn.jpg', '/gui/wait.svg', ]
+    files2 = ['/main.py', '/voicestuff.py', '/vtipy.txt', '/projekty.txt', '/conf.ini', '/MBinteract/mbinteract.py', '/MBinteract/strwash.py', '/asciigui/asciigui.py', '/asciigui/mic.txt', '/asciigui/pressa.txt']
     #NOW DONT TOUCH ANYTHING
     missing = []
 
