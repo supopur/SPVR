@@ -26,10 +26,9 @@ from sys import path
 #import the gui:
 path.insert(0, 'asciigui/')
 import asciigui as gui
-import threading
 import voicestuff as vs
 import signal
-
+#import keyboard
 
 def main(vtipn : float = 0):
     #settings stuff
@@ -65,10 +64,11 @@ def main(vtipn : float = 0):
     
     #confsoup = [jokefile, joken, rlang, ambient, ttslang, ttsdir, ttsncache]
     #print(confsoup)
-    
-    gui.mic()
+    gui.clear()
+    gui.artg('Mluv    do  microfonu')
     text = vs.recognize()
-    
+    gui.clear()
+    gui.wait('Cekej...')
     print('Toto je print z funkce "main"', str(text))
     print(text)
     if 'se máš' in text:
@@ -163,11 +163,12 @@ def main(vtipn : float = 0):
         vs.TTS('Omlouvám se ale nerozumněl jsem, Nebo tato věta není v mé databázy')
 
 if __name__ == '__main__':
-    vtip = 0
-    while True:
-        try:
+    try:
+        vtip = 0
+        while True:
+            #keyboard.on_press_key("r", lambda _:main(1))
             vtip = main(vtip)
-            if vtip == 'stop':
-                break
-        except:
-            break
+            if vtip == 'stop': break
+    except:
+        gui.clear()
+        gui.error("OOOPS    NECO   SE    POKAZILO")
