@@ -24,11 +24,13 @@ from colorama import Fore, Style
 from os import popen
 from sys import path
 #import the gui:
-path.insert(0, 'gui/')
-import gui
-
+path.insert(0, 'asciigui/')
+import asciigui as gui
+import threading
 import voicestuff as vs
-gui.mic()
+import signal
+
+
 def main(vtipn : float = 0):
     #settings stuff
     conf = configparser.ConfigParser()
@@ -64,8 +66,9 @@ def main(vtipn : float = 0):
     #confsoup = [jokefile, joken, rlang, ambient, ttslang, ttsdir, ttsncache]
     #print(confsoup)
     
-    
+    gui.mic()
     text = vs.recognize()
+    
     print('Toto je print z funkce "main"', str(text))
     print(text)
     if 'se máš' in text:
