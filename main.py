@@ -22,9 +22,13 @@ import linecache
 from os.path import exists
 from colorama import Fore, Style
 from os import popen
+from sys import path
+#import the gui:
+path.insert(0, 'gui/')
+import gui
 
 import voicestuff as vs
-
+gui.mic()
 def main(vtipn : float = 0):
     #settings stuff
     conf = configparser.ConfigParser()

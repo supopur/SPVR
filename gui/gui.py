@@ -2,10 +2,11 @@ from tkinter import *
 from pyautogui import press, size
 #import threading
 from PIL import ImageTk, Image
+from os import popen
 
 def loading(time : int = 0):
     root = Tk()
-    img = ImageTk.PhotoImage(Image.open('wait.svg'))
+    img = ImageTk.PhotoImage(Image.open('gui/wait.svg'))
     panel = Label(root, image = img)
     panel.pack(side = "bottom", fill = "both", expand = "yes")
 
@@ -15,9 +16,9 @@ def loading(time : int = 0):
 def yn(yes : bool, time : int = 0):
     root = Tk()
     if yes == True:
-        img = ImageTk.PhotoImage(Image.open('yn.jpg'))
+        img = ImageTk.PhotoImage(Image.open('gui/yn.jpg'))
     else:
-        img = ImageTk.PhotoImage(Image.open('yn.jpg'))
+        img = ImageTk.PhotoImage(Image.open('gui/yn.jpg'))
     panel = Label(root, image = img)
     panel.pack(side = "bottom", fill = "both", expand = "yes")
 
@@ -26,7 +27,7 @@ def yn(yes : bool, time : int = 0):
     root.mainloop()
 def reload(time : int = 0):
     root = Tk()
-    img = ImageTk.PhotoImage(Image.open('reloading.jpg'))
+    img = ImageTk.PhotoImage(Image.open('gui/reloading.jpg'))
     panel = Label(root, image = img)
     panel.pack(side = "bottom", fill = "both", expand = "yes")
 
@@ -34,18 +35,26 @@ def reload(time : int = 0):
     root.after(time, root.destroy)
     root.mainloop()
 def pressA(time : int = 0):
+    
     root = Tk()
-    img = ImageTk.PhotoImage(Image.open('activate.jpg'))
+    img = ImageTk.PhotoImage(Image.open('gui/activate.jpg'))
     panel = Label(root, image = img)
     panel.pack(side = "bottom", fill = "both", expand = "yes")
 
     root.attributes('-fullscreen',True)
     root.after(time, root.destroy)
     root.mainloop()
-def mic():
-    pass
+def mic(time : int = 0):
+    root = Tk()
+    img = ImageTk.PhotoImage(Image.open('gui/mic.svg'))
+    panel = Label(root, image = img)
+    panel.pack(side = "bottom", fill = "both", expand = "yes")
+
+    root.attributes('-fullscreen',True)
+    root.after(time, root.destroy)
+    root.mainloop()
 
 
 
 if __name__ == '__main__':
-    yn(1, 10000)
+    print('Error: Please import it in a file that is in the same directory as main.py')
