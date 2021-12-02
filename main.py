@@ -1,8 +1,11 @@
 try:
     import checkfiles as check
 
+    #print('Checking folders...')
+    check.checktree()
+
     print('Checking file integrity...')
-    check.main()
+    check.checkfiles()
 except:
     print('ERROR FAILED TO IMPORT LETHAL MODULES CHECK YOUR FILES')
     print('LAUNCH REQUIRED.SH IF THAT DOESNT FIX IT DOWNLOAD THIS FILE:')

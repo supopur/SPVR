@@ -2,11 +2,35 @@
 #IF YOU DARE TOUCH THIS CODE YOU WILL GO TO HELL
 import os
 import pathlib
-def main():
+
+def checktree(reqdir : list = ['gui', 'MBinteract', 'assets']):
+    print('Checking directory tree...')
+    required_dir = reqdir
+    directories = os.listdir()
+    missing = []
+    
+    for dir in required_dir:
+        if not dir in directories:
+            print(f'Missing file: {dir}')
+            missing.append(dir)
+        else:
+            print(f'{dir} ok...')
+    if not missing == []:
+        print(missing)
+        yn = input('Folders are missing do you want to make them? (Y/n): ')
+        yn = yn.lower()
+        if yn == '' or 'y':
+            print('Downloading files...')
+            for miss in missing:
+                os.popen(f'mkdir {miss}')
+
+def checkfiles():
     path = pathlib.Path('main.py').parent.absolute()
     #we shall store all the file names in this list
     filelist = []
+    #you can touch this list "files2"
     files2 = ['/main.py', '/voicestuff.py', '/vtipy.txt', '/projekty.txt', '/conf.ini', '/MBinteract/mbinteract.py', '/MBinteract/strwash.py', '/gui/gui.py', '/gui/activate.jpg', '/gui/reloading.jpg', '/gui/yn.jpg', '/gui/wait.svg', ]
+    #NOW DONT TOUCH ANYTHING
     missing = []
 
     filelist2 = []
@@ -51,3 +75,6 @@ def main():
                     run = False
                 if run:
                     print(os.popen(command).read())
+if __name__ == '__main__':
+    checktree()
+    checkfiles()
