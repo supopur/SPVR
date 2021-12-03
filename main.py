@@ -37,19 +37,6 @@ def main(vtipn : float = 0):
     conf = configparser.ConfigParser()
     conf.read('conf.ini')
     
-    if not exists('conf.ini'):
-        print(Fore.RED + "[EXCEPTION]: Config file doesn't. Please download it from: https://raw.githubusercontent.com/supopur/SPVR/main/conf.ini", Style.RESET_ALL)
-        download = input("Do you want to download it Y/n: ")
-        download = download.lower()
-        if download == '' or download == 'y':
-            print(popen("wget https://raw.githubusercontent.com/supopur/SPVR/main/conf.ini").read())
-            #return 0
-        else:
-            return 0
-
-    
-
-    
     jokefile = conf['jokes']['jokefile']
     joken = conf['jokes']['jokenumber']
     joken = int(joken)
