@@ -4,3 +4,5 @@
 #example:
 #carrot = carrot
 #carrot.response = i love carrots
+test = ahoj
+test.response = ahoj
