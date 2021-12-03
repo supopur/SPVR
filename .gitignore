@@ -1,6 +1,6 @@
 *.mp3
-__pycache__
-.vscode
-sound
+__pycache__/
+.vscode/
+sound/
 test.py
 fixgit.sh
