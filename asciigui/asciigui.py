@@ -17,6 +17,12 @@ def wait(text : str):
     print(text)
     text = art("cassette2", 5)
     print(text)
+def stopping(text : str):
+    text = text2art(text)
+    print(text)
+    text = art("at what cost", 10)
+    print(text)
+
 
 def clear():
     system('clear')

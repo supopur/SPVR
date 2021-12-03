@@ -30,6 +30,8 @@ import voicestuff as vs
 import signal
 #import keyboard
 
+
+
 def main(vtipn : float = 0):
     #settings stuff
     conf = configparser.ConfigParser()
@@ -161,7 +163,7 @@ def main(vtipn : float = 0):
         vs.TTS('Já jsem hlasový asistent')
     else:
         vs.TTS('Omlouvám se ale nerozumněl jsem, Nebo tato věta není v mé databázy')
-
+    gui.clear()
 if __name__ == '__main__':
     try:
         vtip = 0
@@ -169,6 +171,8 @@ if __name__ == '__main__':
             #keyboard.on_press_key("r", lambda _:main(1))
             vtip = main(vtip)
             if vtip == 'stop': break
+        gui.clear()
+        gui.stopping('Zastavuji     program...')
     except:
         gui.clear()
         gui.error("OOOPS    NECO   SE    POKAZILO")
