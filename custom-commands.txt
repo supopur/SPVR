@@ -1,8 +1,0 @@
-#How to use this:
-#Make a new command with: "command-name" = "what to say to trigger this"
-#Add response to the command: "command-name".response = "What to say"
-#example:
-#carrot = carrot
-#carrot.response = i love carrots
-test = ahoj
-test.response = ahoj
