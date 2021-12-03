@@ -11,7 +11,7 @@ def checktree(reqdir : list = ['asciigui', 'MBinteract', 'assets']):
     
     for dir in required_dir:
         if not dir in directories:
-            print(f'Missing file: {dir}')
+            print(f'Missing folder: {dir}')
             missing.append(dir)
         else:
             print(f'{dir} ok...')
