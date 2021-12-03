@@ -55,7 +55,7 @@ def main(vtipn : float = 0):
     #print(confsoup)
     gui.clear()
     gui.artg('Mluv    do  microfonu')
-    text = vs.recognize()
+    text = vs.recognize(rlang)
     gui.clear()
     gui.wait('Cekej...')
     print('Toto je print z funkce "main"', str(text))
@@ -75,19 +75,19 @@ def main(vtipn : float = 0):
         print('main: "cas" recognized')
         timed = datetime.now()
         time = timed.strftime("právě je %H hodin a %M minut")
-        vs.TTS(time, 'time')
+        vs.TTS(time, 'time', ttslang, ttsdir)
     elif 'slyšíš' in text:
         print('main: "slysis" recognized')
         vs.TTS('Ano pořád tě poslouchám, ha, ha, ha, pořád tě slyším')
     elif 'jmenuješ' in text:
         print('main: "jmenujes" recognized')
-        vs.TTS('jmenuji se, aah, no, hele, já ani nevím')
+        vs.TTS('jmenuji se, aah, no, hele, já ani nevím', 'jmenuji se, aah, no, hele, já ani nevím', ttslang, ttsdir)
     elif "atrakce" in text or "zábava" in text or "projekty" in text or "projekt" in text:
         print('main: "atrakce" recognized')
         with open('projekty.txt', 'r') as f:
             projekty = f.read()
             print(projekty, 'projekty')
-        vs.TTS(projekty, 'projekty')
+        vs.TTS(projekty, 'projekty', ttslang, ttsdir)
     elif 'vtip' in text:
         print('main: "vtip" recognized')
         try:
@@ -114,7 +114,7 @@ def main(vtipn : float = 0):
             agree = int(agree)
             vtipn = agree
             vtip = linecache.getline('vtipy.txt', vtipn)
-        vs.TTS(vtip, 'joke')
+        vs.TTS(vtip, 'joke', ttslang, ttsdir)
         return vtipn
     elif 'stop' in text:
         print('main: "Stop" recognized')
@@ -127,27 +127,27 @@ def main(vtipn : float = 0):
     elif 'co je' in text:
         print('main: "co je" recognized')
         if 'google' in text:
-            vs.TTS('Google je google')
+            vs.TTS('Google je google', 'Google je google', ttslang, ttsdir)
         elif 'databáze' in text:
-            vs.TTS('databáze je list hodnot')
+            vs.TTS('databáze je list hodnot', 'databáze je list hodnot', ttslang, ttsdir)
         elif 'string' in text or 'spring' in text or 'strike' in text or 'strange' in text or 'stream' in text:
-            vs.TTS('String je hodnota textu v počítačovém programu')
+            vs.TTS('String je hodnota textu v počítačovém programu', 'String je hodnota textu v počítaovém programu', ttslang, ttsdir)
         else:
-            vs.TTS('Jak já to mám vědět')
+            vs.TTS('Jak já to mám vědět', 'Jak já to mám vědět', ttslang, ttsdir)
     elif 'zajímavé' in text:
-        vs.TTS('velmi')
+        vs.TTS('velmi', 'velmi', ttslang, ttsdir)
     elif 'umíš' in text:
-        vs.TTS('Všechny příkazy: vtip, jaké jsou tady projekty, jak se jmenuješ,jak se máš, kolik je hodin, jak funguješ', 'commands')
+        vs.TTS('Všechny příkazy: vtip, jaké jsou tady projekty, jak se jmenuješ,jak se máš, kolik je hodin, jak funguješ', 'commands', ttslang, ttsdir)
     elif 'mám' in text and 'dobře' in text:
-        vs.TTS('tak to je dobře')
+        vs.TTS('tak to je dobře', 'tak to je dobře', ttslang, ttsdir)
     elif 'mám' in text and 'blbě' in text:
-        vs.TTS('tak to je špatně, a proč')
+        vs.TTS('tak to je špatně, a proč', 'tak to je špatně a proč', ttslang, ttsdir)
     elif 'to je dobré' in text or 'to je super' in text or 'to je docela dobré' in text or 'to je docela super' in text:
-        vs.TTS('To teda je')
+        vs.TTS('To teda je', 'To teda je', ttslang, ttsdir)
     elif 'nevím' in text:
-        vs.TTS('To já také ne')
+        vs.TTS('To já také ne', 'To já také ne', ttslang, ttsdir)
     elif 'co jsi' in text:
-        vs.TTS('Já jsem hlasový asistent')
+        vs.TTS('Já jsem hlasový asistent', 'Já jsem hlasový asistent', ttslang, ttsdir)
     else:
         gui.clear()
         gui.artc('Omlouvam   se    ale    nerozumnel     jsem', 'dunno2', 22)

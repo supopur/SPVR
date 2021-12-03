@@ -47,7 +47,7 @@ def TTS(text : str = 'oops žádný vstup textu', filename : str = '', lang : st
             
 
 
-def recognize():
+def recognize(lang : str = 'cs-CZ'):
     with sr.Microphone() as source2:
         
         #noise canceling
@@ -55,7 +55,7 @@ def recognize():
 
         audio2 = r.listen(source2)
 
-        text = r.recognize_google(audio2, language = 'cs-CZ')
+        text = r.recognize_google(audio2, language = lang)
         text = text.lower()
         print('Google recongized you said:', text)
         text = str(text)
