@@ -22,7 +22,11 @@ def stopping(text : str):
     print(text)
     text = art("at what cost", 10)
     print(text)
-
+def artc(text : str, emote : str, number : int = 1):
+    text = text2art(text)
+    print(text)
+    text = art(emote, number)
+    print(text)
 
 def clear():
     system('clear')

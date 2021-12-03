@@ -149,6 +149,7 @@ def main(vtipn : float = 0):
     elif 'co jsi' in text:
         vs.TTS('Já jsem hlasový asistent')
     else:
+        gui.artc('Omlouvám   se    ale    nerozumněl     jsem', 'dunno2')
         vs.TTS('Omlouvám se ale nerozumněl jsem, Nebo tato věta není v mé databázy')
     gui.clear()
 if __name__ == '__main__':
