@@ -28,6 +28,7 @@ path.insert(0, 'asciigui/')
 import asciigui as gui
 import voicestuff as vs
 import signal
+from googletrans import Translator
 #import keyboard
 
 
@@ -123,7 +124,33 @@ def main(vtipn : float = 0):
             return 'stop'
         except:
             print('Stopping failed...')
-            
+    elif 'jak se řekne' in text:
+        if 'anglicky' in text:
+            lang = 'en'
+        elif 'německy' in text:
+            lang = 'de'
+        elif 'čínsky' in text:
+            lang = 'zh'
+        elif 'japonsky' in text:
+            lang = 'ja'
+        elif 'finsky' in text:
+            lang = 'fi'
+        else:
+            lang = 'en'
+            gui.artg('Omlouvám  se  ale     tento   jazyk   není    podporován')
+            vs.TTS('Omlouvám se ale tento jazyk není podporován')
+        translate = text.partition(spl_word)[2]
+        for replace in translatevoice:
+            translate.replace(replace, '')
+        for replace in translateascii:
+            translate.replace(replace, '')
+        translator = Translator()
+        translated = translator.translate(translate, dest='en')
+        print(f'The translated string is:{translated}')
+        gui.clear()
+        gui.artg(translated)
+        vs.TTS(translated, translated, ttslang, ttsdir)
+        
     elif 'co je' in text:
         print('main: "co je" recognized')
         if 'google' in text:
