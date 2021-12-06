@@ -49,9 +49,11 @@ def TTS(text : str = 'oops žádný vstup textu', filename : str = '', lang : st
 
 def recognize(lang : str = 'cs-CZ'):
     with sr.Microphone() as source2:
-        
+        conf = configparser.ConfigParser()
+        conf.read('conf.ini')
+        noisedur = conf['recognizer']['adjust_ambient']
         #noise canceling
-        r.adjust_for_ambient_noise(source2, duration = 0.5)
+        r.adjust_for_ambient_noise(source2, duration = noisedur)
 
         audio2 = r.listen(source2)
 
