@@ -141,16 +141,14 @@ def main(vtipn : float = 0):
             gui.artg('Omlouvám  se  ale     tento   jazyk   není    podporován')
             vs.TTS('Omlouvám se ale tento jazyk není podporován')
         translate = text.replace('jak se řekne', '')
-        for replace in translatevoice:
-            translate.replace(replace, '')
-        for replace in translateascii:
-            translate.replace(replace, '')
+
         translator = Translator()
+        print(translate)
         translated = translator.translate(translate, dest=lang)
-        print(f'The translated string is:{translated}')
+        print(f'The translated string is:{translated.text}')
         gui.clear()
-        gui.artg(translated)
-        vs.TTS(translated, translated, ttslang, ttsdir)
+        gui.artg(translated.text)
+        vs.TTS(translated.text, translated.text, lang, ttsdir)
         
     elif 'co je' in text:
         print('main: "co je" recognized')
