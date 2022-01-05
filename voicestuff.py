@@ -53,7 +53,7 @@ def recognize(lang : str = 'cs-CZ'):
         conf.read('conf.ini')
         noisedur = conf['recognizer']['adjust_ambient']
         #noise canceling
-        r.adjust_for_ambient_noise(source2, duration = noisedur)
+        r.adjust_for_ambient_noise(source2, duration = 0.5)
 
         audio2 = r.listen(source2)
 

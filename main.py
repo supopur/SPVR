@@ -34,6 +34,7 @@ from googletrans import Translator
 
 
 def main(vtipn : float = 0):
+    print('hello')
     #settings stuff
     conf = configparser.ConfigParser()
     conf.read('conf.ini')
@@ -139,13 +140,13 @@ def main(vtipn : float = 0):
             lang = 'en'
             gui.artg('Omlouvám  se  ale     tento   jazyk   není    podporován')
             vs.TTS('Omlouvám se ale tento jazyk není podporován')
-        translate = text.partition(spl_word)[2]
+        translate = text.replace('jak se řekne', '')
         for replace in translatevoice:
             translate.replace(replace, '')
         for replace in translateascii:
             translate.replace(replace, '')
         translator = Translator()
-        translated = translator.translate(translate, dest='en')
+        translated = translator.translate(translate, dest=lang)
         print(f'The translated string is:{translated}')
         gui.clear()
         gui.artg(translated)
@@ -175,20 +176,22 @@ def main(vtipn : float = 0):
         vs.TTS('To já také ne', 'To já také ne', ttslang, ttsdir)
     elif 'co jsi' in text:
         vs.TTS('Já jsem hlasový asistent', 'Já jsem hlasový asistent', ttslang, ttsdir)
+    elif 'rozbitá':
+        vs.TTS('Matouš to mě stvořil', 'Matouš to mě stvořil', ttslang, ttsdir)
     else:
         gui.clear()
         gui.artc('Omlouvam   se    ale    nerozumnel     jsem', 'dunno2', 22)
         vs.TTS('Omlouvám se ale nerozumněl jsem, Nebo tato věta není v mé databázy')
     gui.clear()
 if __name__ == '__main__':
-    try:
-        vtip = 0
-        while True:
-            #keyboard.on_press_key("r", lambda _:main(1))
-            vtip = main(vtip)
-            if vtip == 'stop': break
-        gui.clear()
-        gui.stopping('Zastavuji     program...')
-    except:
-        gui.clear()
-        gui.error("OOOPS    NECO   SE    POKAZILO")
+    #try:
+    vtip = 0
+    while True:
+        #keyboard.on_press_key("r", lambda _:main(1))
+        vtip = main(vtip)
+        if vtip == 'stop': break
+    gui.clear()
+    gui.stopping('Zastavuji     program...')
+    #except:
+        #gui.clear()
+        #gui.error("OOOPS    NECO   SE    POKAZILO")
