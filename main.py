@@ -136,10 +136,16 @@ def main(vtipn : float = 0):
             lang = 'ja'
         elif 'finsky' in text:
             lang = 'fi'
+        elif 'rusky' in text:
+            lang = 'ru'
+        elif 'česky' in text:
+            lang = 'cs'
         else:
             lang = 'en'
-            gui.artg('Omlouvám  se  ale     tento   jazyk   není    podporován')
-            vs.TTS('Omlouvám se ale tento jazyk není podporován')
+
+        #else:
+         #   gui.artg('Omlouvám  se  ale     tento   jazyk   není    podporován')
+          #  vs.TTS('Omlouvám se ale tento jazyk není podporován')
         translate = text.replace('jak se řekne', '')
 
         translator = Translator()
@@ -149,7 +155,7 @@ def main(vtipn : float = 0):
         gui.clear()
         gui.artg(translated.text)
         vs.TTS(translated.text, translated.text, lang, ttsdir)
-        
+
     elif 'co je' in text:
         print('main: "co je" recognized')
         if 'google' in text:
@@ -175,7 +181,8 @@ def main(vtipn : float = 0):
     elif 'co jsi' in text:
         vs.TTS('Já jsem hlasový asistent', 'Já jsem hlasový asistent', ttslang, ttsdir)
     elif 'rozbitá':
-        vs.TTS('Matouš to mě stvořil', 'Matouš to mě stvořil', ttslang, ttsdir)
+        vs.TTS('Matouš mě stvořil', 'Matouš mě stvořil', ttslang, ttsdir)
+
     else:
         gui.clear()
         gui.artc('Omlouvam   se    ale    nerozumnel     jsem', 'dunno2', 22)
