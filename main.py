@@ -180,8 +180,12 @@ def main(vtipn : float = 0):
         vs.TTS('To já také ne', 'To já také ne', ttslang, ttsdir)
     elif 'co jsi' in text:
         vs.TTS('Já jsem hlasový asistent', 'Já jsem hlasový asistent', ttslang, ttsdir)
-    elif 'rozbitá':
+    elif 'rozbitá' in text:
         vs.TTS('Matouš mě stvořil', 'Matouš mě stvořil', ttslang, ttsdir)
+    elif 'violka' in text:
+        vs.TTS('Je moc hezka', 'Je moc hezka', ttslang, ttsdir)
+    elif 'jazyky' in text:
+        vs.TTS('Umím anglicky, německy, čínsky, japonsky, finsky, rusky a česky', 'lang', ttslang, ttsdir)
 
     else:
         gui.clear()
