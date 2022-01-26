@@ -193,6 +193,7 @@ if __name__ == '__main__':
     vtip = 0
     while True:
         #keyboard.on_press_key("r", lambda _:main(1))
+        input("Zmackni entr")
         vtip = main(vtip)
         if vtip == 'stop': break
     gui.clear()
